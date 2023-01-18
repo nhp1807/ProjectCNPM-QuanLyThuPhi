@@ -1,0 +1,31 @@
+.btn_minus_close {
+   -fx-background-color: transparent;
+}
+
+.btn_minus_close:hover {
+    -fx-background-color: #F2E7D5;
+}
+
+/*About contact info*/
+
+.btn_about_contact_info {
+    -fx-background-color: transparent;
+}
+
+.btn_about_contact_info:hover {
+    -fx-background-color: #F2E7D5;
+}
+
+.btn_sign_in {
+    -fx-background-color: #F2E7D5;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color:  #393E46;
+}
+
+.btn_sign_in:hover {
+    -fx-background-color: #6D9886;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color:  #393E46;
+}

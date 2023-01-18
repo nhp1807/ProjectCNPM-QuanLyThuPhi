@@ -1,0 +1,36 @@
+.north{
+    -fx-background-color:#000;
+}
+.east{
+    -fx-background-color:#113043;
+}
+.button{
+    -fx-background-color: #113043;
+    -fx-border-color: #fff;
+    -fx-border-radius:  8px;
+    -fx-border-width: 2px;
+    -fx-background-radius: 8px
+}
+.shadow{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.5), 6,0,0,0);
+}
+.button:hover{
+    -fx-background-color:#113099;
+}
+.button_fun{
+    -fx-background-color: #fff;
+    -fx-border-color: #113043;
+    -fx-border-radius: 8px;
+}
+.button_fun:hover{
+    -fx-background-color: #F0E9D2;
+}
+.button_sys{
+    -fx-background-color: #000;
+    -fx-border-color: #fff;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+.button_sys:hover{
+    -fx-background-color: #434242;
+}

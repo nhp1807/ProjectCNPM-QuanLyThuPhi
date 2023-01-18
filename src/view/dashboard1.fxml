@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.controllerDashBoard">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="1600.0">
+         <children>
+            <BorderPane layoutX="173.0" layoutY="291.0" prefHeight="901.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="47.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="671.0" layoutY="7.0" prefHeight="47.0" prefWidth="1523.0" styleClass="north" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="40.0" layoutY="10.0" text=" RESIDENTIAL GROUP MANAGEMENT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/citizen_icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Button fx:id="exit_bt" layoutX="1480.0" layoutY="9.0" mnemonicParsing="false" onAction="#exit_ui" styleClass="button_sys" stylesheets="@../css/dashboard1.css">
+                                 <graphic>
+                                    <ImageView fitHeight="42.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-close-96.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minus_btn" layoutX="1430.0" layoutY="9.0" mnemonicParsing="false" onAction="#minusWindow" styleClass="button_sys" stylesheets="@../css/dashboard1.css">
+                                 <graphic>
+                                    <ImageView fitHeight="42.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-subtract-90.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="740.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="44.0" layoutY="164.0" prefHeight="800.0" prefWidth="206.0" styleClass="east" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="154.0" layoutX="45.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/dashboard/city.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="57.0" layoutY="156.0" text="WELCOME" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="tongquan_btn" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="TỔNG QUAN" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-home-page-96.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="nhankhau_btn" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="NHÂN KHẨU" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-user-groups-100.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="khoanthu_btn" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="438.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="KHOẢN THU" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-money-yours-90.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Line endX="55.19990539550781" endY="1.52587890625E-5" layoutX="140.0" layoutY="200.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+                              <Button fx:id="dangxuat_btn" layoutX="42.0" layoutY="670.0" mnemonicParsing="false" onAction="#dangXuat" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" textFill="WHITE">
+                                 <font>
+                                    <Font name=".VnVogue Medium" size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-logout-rounded-left-90.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="quatang_btn" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="508.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="QUÀ TẶNG" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-gift-96.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="dongphi_btn" alignment="BASELINE_LEFT" layoutX="42.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="ĐÓNG PHÍ" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-paste-special-90.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="hokhau_btn" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/dashboard1.css" text="HỘ KHẨU" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="71.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-country-house-96.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Line endX="55.19990539550781" endY="1.52587890625E-5" layoutX="140.0" layoutY="650.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="800.0" prefWidth="1329.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="tongquan_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css">
+                                 <children>
+                                    <AnchorPane layoutX="500.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane layoutX="89.0" layoutY="373.0" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #113043; -fx-background-radius: 8px;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="51.0" layoutY="98.0" text="TỔNG SỐ KHOẢN THU" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="tongQuan_tongKhoanThuTxt" alignment="CENTER" layoutX="153.0" layoutY="150.0" prefHeight="36.0" prefWidth="194.0" style="-fx-alignment: center;" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="698.0" layoutY="375.0" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #113043; -fx-background-radius: 8px;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="106.0" layoutY="96.0" prefHeight="54.0" prefWidth="288.0" text="TỔNG SỐ QUÀ" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="tongQuan_tongQuaTxt" alignment="CENTER" layoutX="153.0" layoutY="150.0" prefHeight="36.0" prefWidth="194.0" style="-fx-alignment: center;" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="89.0" layoutY="32.0" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #113043; -fx-background-radius: 8px;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="83.0" layoutY="96.0" prefHeight="54.0" prefWidth="334.0" text="TỔNG HỘ KHẨU" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="tongQuan_tongHoKhauTxt" alignment="CENTER" layoutX="153.0" layoutY="150.0" prefHeight="36.0" prefWidth="194.0" style="-fx-alignment: center;" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="697.0" layoutY="30.0" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #113043; -fx-background-radius: 8px;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="62.0" layoutY="96.0" prefHeight="54.0" prefWidth="377.0" text="TỔNG NHÂN KHẨU" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="tongQuan_tongNhanKhauTxt" alignment="CENTER" layoutX="154.0" layoutY="150.0" prefHeight="36.0" prefWidth="194.0" style="-fx-alignment: center;" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="37.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="nhankhau_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1294.0" style="-fx-background-color: #fff; -fx-background-radius: 8px; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane layoutX="440.0" layoutY="173.0" prefHeight="724.0" prefWidth="1294.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="nhankhau_table" layoutX="19.0" layoutY="73.0" prefHeight="632.0" prefWidth="1258.0">
+                                            <columns>
+                                              <TableColumn fx:id="nhankhau_idNhanKhau_col" prefWidth="136.33331298828125" text="ID NHÂN KHẨU" />
+                                                <TableColumn fx:id="nhankhau_idHoKhau_col" prefWidth="307.6666259765625" text="ID HỘ KHẨU" />
+                                              <TableColumn fx:id="nhankhau_hoTen_col" prefWidth="194.66668701171875" text="HỌ TÊN" />
+                                                <TableColumn fx:id="nhankhau_canCuoc_col" prefWidth="105.33331298828125" text="CĂN CƯỚC" />
+                                                <TableColumn fx:id="nhankhau_namSinh_col" prefWidth="227.0" text="NĂM SINH" />
+                                                <TableColumn fx:id="nhankhau_quanHe_col" prefWidth="288.333251953125" text="QUAN HỆ VỚI CHỦ HỘ" />
+                                            </columns>
+                                          </TableView>
+                                          <TextField fx:id="nhanKhau_searchTxt" layoutX="19.0" layoutY="20.0" prefHeight="35.0" prefWidth="550.0" promptText="Search" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 8px;">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="533.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/dashboard/icons8-search-144.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="988.0" layoutY="25.0" text="THÔNG TIN NHÂN KHẨU">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="hokhau_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="8.0" layoutY="9.0" prefHeight="700.0" prefWidth="1282.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css">
+                                 <children>
+                                    <TableView fx:id="hokhau_table" layoutX="7.0" layoutY="56.0" prefHeight="637.0" prefWidth="1270.0">
+                                       <columns>
+                                          <TableColumn fx:id="hokhau_idHoKhau_col" prefWidth="213.8666286468506" text="ID HỘ KHẨU" />
+                                          <TableColumn fx:id="hokhau_chuHo_col" prefWidth="314.6666259765625" text="CHỦ HỘ " />
+                                          <TableColumn fx:id="hokhau_diaChi_col" prefWidth="742.9334106445312" text="ĐỊA CHỈ" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="1017.0" layoutY="6.0" text="THÔNG TIN HỘ KHẨU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="hoKhau_searchTxt" layoutX="10.0" layoutY="5.0" prefHeight="35.0" prefWidth="550.0" promptText="Search" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 8px;">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="526.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-search-144.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="khoanthu_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #fff; -fx-background-radius: 8px; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css">
+                                 <children>
+                                    <AnchorPane layoutX="440.0" layoutY="173.0" prefHeight="386.0" prefWidth="1280.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="khoanthu_table" layoutX="19.0" layoutY="73.0" onMouseClicked="#chonKhoanThu" prefHeight="250.0" prefWidth="1234.0">
+                                             <columns>
+                                                <TableColumn fx:id="khoanthu_idKhoanThu_col" prefWidth="150.0" text="ID KHOẢN THU" />
+                                                <TableColumn fx:id="khoanthu_tenKhoanThu_col" prefWidth="263.3333740234375" text="TÊN KHOẢN THU" />
+                                                <TableColumn fx:id="khoanthu_loaiKhoanThu_col" prefWidth="213.06668090820312" text="LOẠI KHOẢN THU" />
+                                                <TableColumn fx:id="khoanthu_giaTri_col" prefWidth="163.7333984375" text="GIÁ TRỊ" />
+                                                <TableColumn fx:id="khoanthu_ngayBatDau_col" prefWidth="200.00006103515625" text="NGÀY BẮT ĐẦU " />
+                                                <TableColumn fx:id="khoanthu_ngayKetThuc_col" prefWidth="243.4666748046875" text="NGÀY KẾT THÚC" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="khoanThu_searchTxt" layoutX="19.0" layoutY="20.0" prefHeight="35.0" prefWidth="550.0" promptText="Search" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 8px;">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="533.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/dashboard/icons8-search-144.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="1000.0" layoutY="22.0" text="QUẢN LÝ KHOẢN THU">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="40.0" layoutY="399.0" text="ID KHOẢN THU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="khoanThu_idKhoanThuTxt" layoutX="260.0" layoutY="400.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="40.0" layoutY="471.0" text="TÊN KHOẢN THU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="khoanThu_tenKhoanThuTxt" layoutX="260.0" layoutY="472.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="40.0" layoutY="538.0" text="LOẠI KHOẢN THU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="490.0" layoutY="475.0" text="NGÀY BẮT ĐẦU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="490.0" layoutY="399.0" text="GIÁ TRỊ">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="khoanThu_giaTriTxt" layoutX="702.0" layoutY="399.0" prefHeight="33.0" prefWidth="190.0" promptText="VNĐ" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button fx:id="khoanThu_themBtn" layoutX="40.0" layoutY="637.0" mnemonicParsing="false" onAction="#themKhoanThu" prefHeight="37.0" prefWidth="176.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="THÊM">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="khoanThu_xoaBtn" layoutX="260.0" layoutY="637.0" mnemonicParsing="false" onAction="#xoaKhoanThu" prefHeight="37.0" prefWidth="176.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="XOÁ">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="khoanThu_chinhSuaBt" layoutX="464.0" layoutY="637.0" mnemonicParsing="false" onAction="#capNhatKhoanThu" prefHeight="37.0" prefWidth="176.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="SỬA">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <ImageView fitHeight="169.0" fitWidth="338.0" layoutX="936.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/QLkhoanthu.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="490.0" layoutY="540.0" text="NGÀY KẾT THÚC">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="khoanthu_ngayBatDauTxt" layoutX="702.0" layoutY="468.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <DatePicker fx:id="khoanthu_ngayKetThucTxt" layoutX="702.0" layoutY="535.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <ComboBox fx:id="khoanThu_loaiKhoanThuTxt" layoutX="260.0" layoutY="538.0" onAction="#loaiKhoanThu" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <Button fx:id="khoanThu_don_btn" layoutX="666.0" layoutY="637.0" mnemonicParsing="false" onAction="#donKhoanThu" prefHeight="37.0" prefWidth="176.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="DỌN">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="quatang_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="702.0" prefWidth="1287.0" style="-fx-background-color: #fff; -fx-background-radius: 8px; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane layoutX="440.0" layoutY="173.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="438.0" prefWidth="1319.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css" AnchorPane.bottomAnchor="262.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="quatang_table" layoutX="19.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#hienThiThongTinQuaTangDangChon" prefHeight="355.0" prefWidth="1232.0">
+                                             <columns>
+                                                <TableColumn fx:id="quatang_idQuaTang_col" prefWidth="86.66668701171875" text="ID QUÀ TẶNG" />
+                                                <TableColumn fx:id="quatang_suKien_col" prefWidth="170.1332778930664" text="SỰ KIỆN" />
+                                                <TableColumn fx:id="quatang_baoGom_col" prefWidth="151.7332763671875" text="BAO GỒM" />
+                                                <TableColumn fx:id="quatang_dieuKien_col" prefWidth="159.46670532226562" text="ĐIỀU KIỆN" />
+                                                <TableColumn fx:id="quatang_giaTri_col" prefWidth="103.7332763671875" text="GIÁ TRỊ" />
+                                                <TableColumn fx:id="quatang_diaDiem_col" prefWidth="233.06671142578125" text="ĐỊA ĐIỂM NHẬN QUÀ" />
+                                                <TableColumn fx:id="quatang_ngayBatDau_col" prefWidth="178.39990234375" text="NGÀY BẮT ĐẦU" />
+                                                <TableColumn fx:id="quatang_ngayKetThuc_col" prefWidth="146.400146484375" text="NGÀY KẾT THÚC" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="quatang_searchTxt" layoutX="19.0" layoutY="20.0" prefHeight="35.0" prefWidth="550.0" promptText="Search" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 8px;">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="531.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/dashboard/icons8-search-144.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="1099.0" layoutY="21.0" prefHeight="35.0" prefWidth="137.0" text="QUÀ TẶNG">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="31.0" layoutY="455.0" text="ID QUÀ TẶNG">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tangqua_idQuaTangTxt" layoutX="197.0" layoutY="451.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="31.0" layoutY="515.0" text="SỰ KIỆN">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tangqua_suKienTxt" layoutX="197.0" layoutY="511.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="29.0" layoutY="575.0" text="BAO GỒM">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tangqua_baoGomTxt" layoutX="197.0" layoutY="571.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="29.0" layoutY="634.0" text="ĐIỀU KIỆN">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="tangqua_them_btn" layoutX="1001.0" layoutY="451.0" mnemonicParsing="false" onAction="#themQuaTang" prefHeight="37.0" prefWidth="124.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="THÊM">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="tangqua_xoa_btn" layoutX="1001.0" layoutY="511.0" mnemonicParsing="false" onAction="#xoaQuaTang" prefHeight="37.0" prefWidth="124.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="XOÁ">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="tangqua_sua_btn" layoutX="1001.0" layoutY="571.0" mnemonicParsing="false" onAction="#suaQuaTang" prefHeight="37.0" prefWidth="124.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="SỬA">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField fx:id="tangqua_dieuKienTxt" layoutX="197.0" layoutY="630.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="470.0" layoutY="458.0" text="GIÁ TRỊ">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tangqua_giaTriTxt" layoutX="676.0" layoutY="455.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="470.0" layoutY="517.0" text="ĐỊA ĐIỂM">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tangqua_diaDiemTxt" layoutX="676.0" layoutY="513.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;">
+                                       <font>
+                                          <Font name=".VnVogue Medium" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="470.0" layoutY="573.0" text="NGÀY BẮT ĐẦU">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="470.0" layoutY="637.0" text="NGÀY KẾT THÚC">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="tangqua_ngayBatDauTxt" layoutX="676.0" layoutY="572.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <DatePicker fx:id="tangqua_ngayKetThucTxt" layoutX="676.0" layoutY="631.0" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <Button fx:id="quatang_don_btn" layoutX="1001.0" layoutY="631.0" mnemonicParsing="false" onAction="#resetThongTinQuaTang" prefHeight="37.0" prefWidth="124.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="DỌN">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="dongphi_form" layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1319.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" styleClass="shadow" stylesheets="@../css/dashboard1.css">
+                                 <children>
+                                    <Label layoutX="957.0" layoutY="11.0" prefHeight="35.0" prefWidth="273.0" text="THỐNG KÊ HOÁ ĐƠN" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="11.0" layoutY="515.0" text="ID KHOẢN THU">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="217.0" fitWidth="237.0" layoutX="1000.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/study.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TableView fx:id="dongphi_table" layoutX="11.0" layoutY="61.0" onMouseClicked="#chonDongPhi" prefHeight="360.0" prefWidth="1257.0">
+                                       <columns>
+                                          <TableColumn fx:id="dongphi_idKhoanThu_col" prefWidth="204.00002098083496" text="ID KHOẢN THU" />
+                                          <TableColumn fx:id="dongphi_idHoKhau_col" prefWidth="366.0" text="ID HỘ KHẨU " />
+                                          <TableColumn fx:id="dongphi_tenNguoiNop_col" prefWidth="393.0" text="TÊN NGƯỜI NỘP" />
+                                          <TableColumn fx:id="dongphi_ngayDong_col" prefWidth="292.0" text="NGÀY ĐÓNG" />
+                                       </columns>
+                                    </TableView>
+                                    <Label layoutX="14.0" layoutY="576.0" text="ID HỘ KHẨU">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="dongphi_them_btn" layoutX="813.0" layoutY="470.0" mnemonicParsing="false" onAction="#themDongPhi" prefHeight="37.0" prefWidth="138.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="THÊM ">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="dongphi_xoa_btn" layoutX="813.0" layoutY="529.0" mnemonicParsing="false" onAction="#xoaDongPhi" prefHeight="37.0" prefWidth="138.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="XOÁ">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="dongphi_sua_btn" layoutX="813.0" layoutY="589.0" mnemonicParsing="false" onAction="#capNhapDongPhi" prefHeight="37.0" prefWidth="138.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="SỬA">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField fx:id="dongphi_searchTxt" layoutX="11.0" layoutY="10.0" prefHeight="35.0" prefWidth="550.0" promptText="Search" style="-fx-background-color: #fff; -fx-border-color: #113043; -fx-border-radius: 8px;">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="529.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/dashboard/icons8-search-144.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="400.0" layoutY="516.0" text="TÊN NGƯỜI NỘP">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="400.0" layoutY="576.0" text="NGÀY ĐÓNG">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="dongphi_ngayDongTxt" layoutX="570.0" layoutY="566.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <Button fx:id="dongphi_don_btn" layoutX="813.0" layoutY="650.0" mnemonicParsing="false" onAction="#donDongPhi" prefHeight="37.0" prefWidth="138.0" styleClass="button_fun" stylesheets="@../css/dashboard1.css" text="DỌN">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <ComboBox fx:id="dongphi_idhokhau" layoutX="166.0" layoutY="568.0" onAction="#chonIDHoKhau" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <ComboBox fx:id="dongphi_tennguoidong" layoutX="570.0" layoutY="505.0" onAction="#chonNguoiDong" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                    <TextField fx:id="dongphi_idKhoanThuTxt" layoutX="166.0" layoutY="504.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #113043; -fx-border-radius: 3px;" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

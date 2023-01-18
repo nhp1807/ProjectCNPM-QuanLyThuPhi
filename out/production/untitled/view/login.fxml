@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.controllerLogin">
+   <ImageView fitHeight="500.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../image/login/fill_left.png" />
+   </ImageView>
+   <ImageView fitHeight="200.0" fitWidth="120.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../image/login/group.png" />
+   </ImageView>
+   <ImageView fitHeight="200.0" fitWidth="550.0" layoutX="25.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../image/login/building.png" />
+   </ImageView>
+   <Button fx:id="btnClose" layoutX="770.0" layoutY="5.0" mnemonicParsing="false" onAction="#closeLogin" styleClass="btn_minus_close" stylesheets="@../css/style.css">
+      <graphic>
+         <FontAwesomeIcon glyphName="CLOSE" />
+      </graphic>
+   </Button>
+   <Button fx:id="btnMinus" layoutX="740.0" layoutY="5.0" mnemonicParsing="false" onAction="#minusLogin" styleClass="btn_minus_close" stylesheets="@../css/style.css">
+      <graphic>
+         <FontAwesomeIcon glyphName="MINUS" />
+      </graphic>
+   </Button>
+   <Button fx:id="btnInfo" layoutX="540.0" layoutY="15.0" mnemonicParsing="false" onAction="#accessInfo" styleClass="btn_about_contact_info" stylesheets="@../css/style.css" text="INFO" textFill="#6d9886">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <Button fx:id="btnContact" layoutX="400.0" layoutY="15.0" mnemonicParsing="false" onAction="#accessContact" styleClass="btn_about_contact_info" stylesheets="@../css/style.css" text="CONTACT" textFill="#6d9886">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <Button fx:id="btnAbout" layoutX="270.0" layoutY="15.0" mnemonicParsing="false" onAction="#accessAbout" styleClass="btn_about_contact_info" stylesheets="@../css/style.css" text="ABOUT" textFill="#6d9886">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+   <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="500.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../image/login/name.png" />
+   </ImageView>
+   <TextField fx:id="txtUsername" layoutX="520.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="User name" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #393E46;">
+      <font>
+         <Font size="13.0" />
+      </font>
+      <padding>
+         <Insets left="35.0" />
+      </padding>
+   </TextField>
+   <PasswordField fx:id="txtPassword" layoutX="520.0" layoutY="250.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #393E46;">
+      <padding>
+         <Insets left="35.0" />
+      </padding>
+      <font>
+         <Font size="13.0" />
+      </font>
+   </PasswordField>
+   <FontAwesomeIcon glyphName="USER" layoutX="530.0" layoutY="225.0" size="2em" />
+   <FontAwesomeIcon glyphName="LOCK" layoutX="530.0" layoutY="275.0" size="2em" />
+   <Button fx:id="btnLogin" layoutX="580.0" layoutY="320.0" mnemonicParsing="false" onAction="#dangNhap" styleClass="btn_sign_in" stylesheets="@../css/style.css" text="  LOG IN  ">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+</AnchorPane>

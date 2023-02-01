@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -28,6 +29,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.function.Predicate;
 
 public class controllerDashBoard implements Initializable {
     @FXML
@@ -1410,6 +1412,9 @@ public class controllerDashBoard implements Initializable {
         stage.setIconified(true);
     }
 
+    private double y = 0;
+    private double x = 0;
+
     public void dangXuat() {
         dangxuat_btn.getScene().getWindow().hide();
 
@@ -1421,6 +1426,17 @@ public class controllerDashBoard implements Initializable {
         }
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+
+        root.setOnMousePressed((MouseEvent event) -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+        root.setOnMouseDragged((MouseEvent event) -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
         stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();
         stage.setScene(scene);

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -81,6 +82,9 @@ public class controllerLogin {
         stage.setIconified(true);
     }
 
+    private double y = 0;
+    private double x = 0;
+
     @FXML
     void dangNhap() {
 
@@ -111,6 +115,7 @@ public class controllerLogin {
                     alert.showAndWait();
 
                     btnLogin.getScene().getWindow().hide();
+
                     Parent root = null;
                     try {
                         root = FXMLLoader.load(getClass().getResource("/view/dashboard1.fxml"));
@@ -119,6 +124,17 @@ public class controllerLogin {
                     }
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
+
+                    root.setOnMousePressed((MouseEvent event) -> {
+                        x = event.getSceneX();
+                        y = event.getSceneY();
+                    });
+
+                    root.setOnMouseDragged((MouseEvent event) -> {
+                        stage.setX(event.getScreenX() - x);
+                        stage.setY(event.getScreenY() - y);
+                    });
+
                     stage.initStyle(StageStyle.UNDECORATED);
                     stage.centerOnScreen();
                     stage.setScene(scene);

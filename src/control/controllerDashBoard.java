@@ -477,37 +477,44 @@ public class controllerDashBoard implements Initializable {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             } else {
-                //Kiem IDKhoanThu
-                String checkIdKhoanThu = "SELECT IDKhoanThu FROM khoanthu WHERE IDKhoanThu = '" + khoanThu_idKhoanThuTxt.getText() + "'";
-                statement = connection.createStatement();
-                resultSet = preparedStatement.executeQuery(checkIdKhoanThu);
+                if(khoanThu_giaTriTxt.getText().matches("^(0|[1-9][0-9]*)$")) {
+                    //Kiem IDKhoanThu
+                    String checkIdKhoanThu = "SELECT IDKhoanThu FROM khoanthu WHERE IDKhoanThu = '" + khoanThu_idKhoanThuTxt.getText() + "'";
+                    statement = connection.createStatement();
+                    resultSet = preparedStatement.executeQuery(checkIdKhoanThu);
 
-                if (resultSet.next()) {
+                    if (resultSet.next()) {
+                        alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error Message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("ID Khoản thu" + khoanThu_idKhoanThuTxt.getText() + "đã tồn tại!");
+                        alert.showAndWait();
+                    } else {
+                        preparedStatement = connection.prepareStatement(sql);
+                        preparedStatement.setString(1, khoanThu_idKhoanThuTxt.getText());
+                        preparedStatement.setString(2, khoanThu_tenKhoanThuTxt.getText());
+                        preparedStatement.setString(3, (String) khoanThu_loaiKhoanThuTxt.getSelectionModel().getSelectedItem());
+                        preparedStatement.setString(4, khoanThu_giaTriTxt.getText());
+                        preparedStatement.setString(5, String.valueOf(khoanthu_ngayBatDauTxt.getValue()));
+                        preparedStatement.setString(6, String.valueOf(khoanthu_ngayKetThucTxt.getValue()));
+
+                        preparedStatement.executeUpdate();
+
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information Message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thêm thành công!");
+                        alert.showAndWait();
+
+                        hienThiDanhSachKhoanThu();
+                        donKhoanThu();
+                    }
+                }else {
                     alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Message");
+                    alert.setTitle("ERROR MESSAGE");
                     alert.setHeaderText(null);
-                    alert.setContentText("ID Khoản thu" + khoanThu_idKhoanThuTxt.getText() + "đã tồn tại!");
+                    alert.setContentText("please enter the correct format of 'Giá trị'");
                     alert.showAndWait();
-                } else {
-                    preparedStatement = connection.prepareStatement(sql);
-                    preparedStatement.setString(1, khoanThu_idKhoanThuTxt.getText());
-                    preparedStatement.setString(2, khoanThu_tenKhoanThuTxt.getText());
-                    preparedStatement.setString(3, (String) khoanThu_loaiKhoanThuTxt.getSelectionModel().getSelectedItem());
-                    preparedStatement.setString(4, khoanThu_giaTriTxt.getText());
-                    preparedStatement.setString(5, String.valueOf(khoanthu_ngayBatDauTxt.getValue()));
-                    preparedStatement.setString(6, String.valueOf(khoanthu_ngayKetThucTxt.getValue()));
-
-                    preparedStatement.executeUpdate();
-
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thêm thành công!");
-                    alert.showAndWait();
-
-                    hienThiDanhSachKhoanThu();
-                    donKhoanThu();
-
                 }
             }
         } catch (Exception ex) {
@@ -541,27 +548,35 @@ public class controllerDashBoard implements Initializable {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             } else {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Bạn có muốn UPDATE khoản thu #" +
-                        khoanThu_idKhoanThuTxt.getText() + "?");
-                Optional<ButtonType> option = alert.showAndWait();
-
-                if (option.get().equals(ButtonType.OK)) {
-                    statement = connection.createStatement();
-                    statement.executeUpdate(capNhat);
-
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                if(khoanThu_giaTriTxt.getText().matches("^(0|[1-9][0-9]*)$")) {
+                    alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Updated!");
-                    alert.showAndWait();
+                    alert.setContentText("Bạn có muốn UPDATE khoản thu #" +
+                            khoanThu_idKhoanThuTxt.getText() + "?");
+                    Optional<ButtonType> option = alert.showAndWait();
 
-                    hienThiDanhSachKhoanThu();
-                    donKhoanThu();
-                } else {
-                    return;
+                    if (option.get().equals(ButtonType.OK)) {
+                        statement = connection.createStatement();
+                        statement.executeUpdate(capNhat);
+
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information Message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Successfully Updated!");
+                        alert.showAndWait();
+
+                        hienThiDanhSachKhoanThu();
+                        donKhoanThu();
+                    } else {
+                        return;
+                    }
+                }else {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("ERROR MESSAGE");
+                    alert.setHeaderText(null);
+                    alert.setContentText("please enter the correct format of 'Giá trị'");
+                    alert.showAndWait();
                 }
             }
         } catch (Exception ex) {
@@ -579,7 +594,6 @@ public class controllerDashBoard implements Initializable {
             if (khoanThu_idKhoanThuTxt.getText().isEmpty()
                     || khoanThu_tenKhoanThuTxt.getText().isEmpty()
                     || khoanThu_giaTriTxt.getText().isEmpty()
-                    || khoanThu_loaiKhoanThuTxt.getSelectionModel().getSelectedItem() == null
                     || khoanthu_ngayBatDauTxt.getValue() == null
                     || khoanthu_ngayKetThucTxt.getValue() == null) {
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -785,44 +799,51 @@ public class controllerDashBoard implements Initializable {
                 alert.setContentText("Vui lòng nhập đủ thông tin");
                 alert.showAndWait();
             } else {
-                String checkData = "select IDQuaTang from quatang where IDQuaTang='" + tangqua_idQuaTangTxt.getText() + "'";
+                if(tangqua_giaTriTxt.getText().matches("^(0|[1-9][0-9]*)$")) {
+                    String checkData = "select IDQuaTang from quatang where IDQuaTang='" + tangqua_idQuaTangTxt.getText() + "'";
 
-                statement = connection.createStatement();
-                resultSet = statement.executeQuery(checkData);
+                    statement = connection.createStatement();
+                    resultSet = statement.executeQuery(checkData);
 
-                if (resultSet.next()) {
+                    if (resultSet.next()) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Quà tặng đã tồn tại");
+                        alert.showAndWait();
+                    } else {
+                        preparedStatement = connection.prepareStatement(sql);
+                        preparedStatement.setString(1, tangqua_idQuaTangTxt.getText());
+                        preparedStatement.setString(2, tangqua_suKienTxt.getText());
+                        preparedStatement.setString(3, tangqua_baoGomTxt.getText());
+                        preparedStatement.setString(4, tangqua_dieuKienTxt.getText());
+                        preparedStatement.setString(5, String.valueOf(tangqua_giaTriTxt.getText()));
+                        preparedStatement.setString(6, tangqua_diaDiemTxt.getText());
+                        Date date1 = Date.from(tangqua_ngayBatDauTxt.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                        java.sql.Date nbdsql = new java.sql.Date(date1.getTime());
+                        preparedStatement.setString(7, String.valueOf(nbdsql));
+                        Date date2 = Date.from(tangqua_ngayKetThucTxt.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+                        java.sql.Date nktsql = new java.sql.Date(date2.getTime());
+                        preparedStatement.setString(8, String.valueOf(nktsql));
+
+                        preparedStatement.executeUpdate();
+
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thêm quà tặng thành công");
+                        alert.showAndWait();
+
+                        hienThiDanhSachQuaTang();
+                        resetThongTinQuaTang();
+                    }
+                }else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Quà tặng đã tồn tại");
+                    alert.setContentText("Please enter the correct format of 'Giá trị'");
                     alert.showAndWait();
-                } else {
-                    preparedStatement = connection.prepareStatement(sql);
-                    preparedStatement.setString(1, tangqua_idQuaTangTxt.getText());
-                    preparedStatement.setString(2, tangqua_suKienTxt.getText());
-                    preparedStatement.setString(3, tangqua_baoGomTxt.getText());
-                    preparedStatement.setString(4, tangqua_dieuKienTxt.getText());
-                    preparedStatement.setString(5, String.valueOf(tangqua_giaTriTxt.getText()));
-                    preparedStatement.setString(6, tangqua_diaDiemTxt.getText());
-                    Date date1 = Date.from(tangqua_ngayBatDauTxt.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                    java.sql.Date nbdsql = new java.sql.Date(date1.getTime());
-                    preparedStatement.setString(7, String.valueOf(nbdsql));
-                    Date date2 = Date.from(tangqua_ngayKetThucTxt.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                    java.sql.Date nktsql = new java.sql.Date(date2.getTime());
-                    preparedStatement.setString(8, String.valueOf(nktsql));
-
-                    preparedStatement.executeUpdate();
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thêm quà tặng thành công");
-                    alert.showAndWait();
-
-                    hienThiDanhSachQuaTang();
-                    resetThongTinQuaTang();
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -852,27 +873,35 @@ public class controllerDashBoard implements Initializable {
                     || tangqua_ngayBatDauTxt.getValue() == null
                     || tangqua_ngayBatDauTxt.getValue() == null) {
             } else {
-                alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Bạn có muốn UPDATE quà tặng #" +
-                        tangqua_idQuaTangTxt.getText() + "?");
-                Optional<ButtonType> option = alert.showAndWait();
-
-                if (option.get().equals(ButtonType.OK)) {
-                    statement = connection.createStatement();
-                    statement.executeUpdate(capNhat);
-
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                if(tangqua_giaTriTxt.getText().matches("^(0|[1-9][0-9]*)$")) {
+                    alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Updated!");
-                    alert.showAndWait();
+                    alert.setContentText("Bạn có muốn UPDATE quà tặng #" +
+                            tangqua_idQuaTangTxt.getText() + "?");
+                    Optional<ButtonType> option = alert.showAndWait();
 
-                    hienThiDanhSachQuaTang();
-                    resetThongTinQuaTang();
-                } else {
-                    return;
+                    if (option.get().equals(ButtonType.OK)) {
+                        statement = connection.createStatement();
+                        statement.executeUpdate(capNhat);
+
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Information Message");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Successfully Updated!");
+                        alert.showAndWait();
+
+                        hienThiDanhSachQuaTang();
+                        resetThongTinQuaTang();
+                    } else {
+                        return;
+                    }
+                }else{
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Please enter the correct format of 'Giá trị'");
+                    alert.showAndWait();
                 }
             }
         } catch (Exception ex) {

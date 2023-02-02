@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2023 at 02:59 PM
+-- Generation Time: Feb 01, 2023 at 04:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,11 +39,10 @@ CREATE TABLE `danhsachdongphi` (
 --
 
 INSERT INTO `danhsachdongphi` (`IDKhoanThu`, `IDHoKhau`, `NguoiDong`, `NgayNop`) VALUES
-('KT01', 'HK02', 'Nguyễn Hải Phong', '2023-01-02'),
-('KT02', 'HK02', 'Nguyễn Khoa Đoàn', '2023-01-18'),
-('KT02', 'HK01', 'Nguyễn Khoa Đoàn', '2023-01-18'),
 ('KT03', 'HK03', 'Phạm Ngọc Hải', '2023-01-18'),
-('KT03', 'HK02', 'Nguyễn Duy Thái', '2023-01-21');
+('KT03', 'HK02', 'Nguyễn Duy Thái', '2023-01-21'),
+('KT02', 'HK02', 'Nguyễn Khoa Đoàn', '2023-02-01'),
+('KT04', 'HK04', 'Nguyễn Xuân Sơn', '2023-02-01');
 
 -- --------------------------------------------------------
 
@@ -88,8 +87,10 @@ CREATE TABLE `khoanthu` (
 
 INSERT INTO `khoanthu` (`IDKhoanThu`, `TenKhoanThu`, `LoaiKhoanThu`, `GiaTri`, `NgayBatDau`, `NgayKetThuc`) VALUES
 ('KT01', 'Nước', 'Bắt buộc', 10000, '2022-01-15', '2023-01-15'),
+('KT02', 'Phí vệ sinh', 'Ủng hộ', 6000, '2023-01-01', '2023-12-31'),
 ('KT03', 'Điện', 'Bắt buộc', 12000, '2022-09-01', '2024-01-01'),
-('KT04', 'Tết 2023', 'Ủng hộ', 0, '2023-01-01', '2023-01-30');
+('KT04', 'Tết 2023', 'Ủng hộ', 50000, '2023-01-01', '2023-01-30'),
+('KT05', 'Phí dịch vụ', 'Bắt buộc', 120000, '2023-02-01', '2023-03-01');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,9 @@ CREATE TABLE `quatang` (
 INSERT INTO `quatang` (`IDQuaTang`, `SuKien`, `BaoGom`, `DieuKien`, `GiaTri`, `DiaDiemNhanQua`, `NgayBatDau`, `NgayKetThuc`) VALUES
 ('QT01', 'Tết 2023', '5 bánh trưng, 1 thùng mỳ', 'Hộ hoàn cảnh khó khăn', 550000, 'Phát trực tiếp cho dân', '2023-01-01', '2023-01-01'),
 ('QT02', 'Chào xuân', 'Lì xì 50000VND', 'Trẻ dưới 18 tuổi', 50000, 'Tổ trưởng phát ', '2023-01-23', '2023-01-23'),
-('QT03', 'Học sinh giỏi', '5 quyển vở', 'Đạt học sinh giỏi', 100000, 'Nhà văn hoá', '2023-01-20', '2023-02-04');
+('QT03', 'Học sinh giỏi', '10 quyển vở', 'Đạt học sinh giỏi', 100000, 'Nhà văn hoá', '2023-01-20', '2023-01-20'),
+('QT04', 'Học sinh tiên tiến', '7 quyển vở', 'Đạt học sinh tiên tiến', 70000, 'Nhà văn hoá', '2023-01-20', '2023-02-20'),
+('QT05', 'Học sinh trung bình', '5 quyển vở', 'Đạt học sinh trung bình', 50000, 'Nhà văn hoá', '2023-01-20', '2023-02-20');
 
 --
 -- Indexes for dumped tables
